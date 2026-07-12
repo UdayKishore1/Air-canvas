@@ -141,8 +141,11 @@ while True:
 
     cv2.imshow("Air Canvas", combined)
 
-    if cv2.waitKey(1) & 0xFF == 27:
+    key = cv2.waitKey(1) & 0xFF
+    if key == 27:  # ESC to quit
         break
+    elif key == ord('c'):  # press 'c' to clear canvas
+        canvas = np.zeros((h, w, 3), dtype=np.uint8)
 
 cap.release()
 cv2.destroyAllWindows()
